@@ -61,3 +61,51 @@ Represents an iterator for iterating through the values of a registry key.
 - **ValueIterator()**: Constructor - Initializes the iterator with the parent key
 - **next()**: Method to move to the next value
 - **name()**: Method to get the name of the current value (getter)
+
+### SHOWCASE
+```cpp
+#include <iostream>
+#include "RegEditor.h" 
+
+int main() {
+    Key registryKey(HKEY_LOCAL_MACHINE, "Software\MyApp");
+
+    int subkeyCount = registryKey.keys_count();
+    std::cout << "Total subkeys: " << subkeyCount << std::endl;
+
+    KeyIterator keyIterator(registryKey.tree());
+    while (keyIterator != KeyIterator(nullptr)) {
+        HKEY subKeyHandle = *keyIterator;
+        // ...
+
+        ++keyIterator; // Move to the next subkey
+    }
+
+ 
+    Value configValue = registryKey.value("Config");
+    if (configValue.is_dword()) {
+        DWORD configData = configValue.get_dword();
+        std::cout << "Config value (DWORD): " << configData << std::endl;
+    } else if (configValue.is_string()) {
+        std::string configData = configValue.get_string();
+        std::cout << "Config value (String): " << configData << std::endl;
+    }
+
+   
+    ValueIterator valueIterator(registryKey.tree());
+    while (valueIterator.next()) {
+        std::string valueName = valueIterator.name();
+        // ...
+    }
+
+  
+    if (registryKey.create_key(HKEY_LOCAL_MACHINE, "Software\MyApp\NewKey")) {
+        std::cout << "New key created successfully" << std::endl;
+        if (registryKey.rename_key(HKEY_LOCAL_MACHINE, "Software\MyApp\NewKey", "Software\MyApp\RenamedKey")) {
+            std::cout << "Key renamed successfully" << std::endl;
+        }
+    }
+
+    return 0;
+}
+```
