@@ -1,5 +1,6 @@
 # Registry Access Library
 Concept Idea: Receiver
+
 This library provides a set of classes for accessing and manipulating the Windows Registry.
 
 ## Key class
