@@ -1,5 +1,5 @@
 # Registry Access Library
-[![windows-latest](https://github.com/DiggerMan-cpp/Registry-Access-Library/actions/workflows/cmake-single-platform.yml/badge.svg)](https://github.com/DiggerMan-cpp/Registry-Access-Library/actions/workflows/cmake-single-platform.yml)
+[![windows-latest](https://github.com/DiggerMan-cpp/Registry-Access-Library/actions/workflows/windows.yml/badge.svg)](https://github.com/DiggerMan-cpp/Registry-Access-Library/actions/workflows/windows.yml)
 
 Concept Idea: **Receiver**
 
