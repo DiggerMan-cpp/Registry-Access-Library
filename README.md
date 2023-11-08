@@ -1,5 +1,7 @@
 # Registry Access Library
-Concept Idea: Receiver
+[![windows-latest](https://github.com/DiggerMan-cpp/Registry-Access-Library/actions/workflows/cmake-single-platform.yml/badge.svg)](https://github.com/DiggerMan-cpp/Registry-Access-Library/actions/workflows/cmake-single-platform.yml)
+
+Concept Idea: **Receiver**
 
 This library provides a set of classes for accessing and manipulating the Windows Registry.
 
